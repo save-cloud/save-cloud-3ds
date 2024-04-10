@@ -1,0 +1,56 @@
+[package]
+name = "save-cloud"
+authors = ["豆汤"]
+description = "游戏存档云备份"
+version = "0.1.0"
+edition = "2021"
+
+[patch.crates-io]
+# Required for rustls
+shipyard = { git = "https://github.com/iamcco/shipyard", branch = "0.6-32bit" }
+# use latest version
+dioxus = { git = "https://github.com/DioxusLabs/dioxus" }
+dioxus-core = { git = "https://github.com/DioxusLabs/dioxus" }
+dioxus-html = { git = "https://github.com/DioxusLabs/dioxus" }
+dioxus-native-core = { git = "https://github.com/DioxusLabs/blitz" }
+dioxus-native-core-macro = { git = "https://github.com/DioxusLabs/blitz" }
+
+[dependencies]
+save_cloud_api = { version = "1.0", path = "../save-cloud-api" }
+ctru-rs = { git = "https://github.com/rust3ds/ctru-rs" }
+ctru-sys = { git = "https://github.com/rust3ds/ctru-rs" }
+bitflags = "2.3.3"
+widestring = "0.2.2"
+tokio = { version = "1.16", features = ["rt-multi-thread", "time", "macros"] }
+
+serde = { version = "1.0", features = ["derive"] }
+serde_urlencoded = "0.7.1"
+serde_json = "1.0.108"
+percent-encoding = "2.3.1"
+log = { version = "0.4.20", features = ["std"]}
+zip = { version = "0.6.6", default-features = false, features = ["deflate", "deflate-miniz", "deflate-zlib", "time"] }
+qrcode-generator = "4.1.9"
+base64 = "0.21.5"
+md5 = "0.7.0"
+
+dioxus = { version = "0.5.0", default-features = false, features = ["macro", "html", "hooks", "signals"]}
+dioxus-core = { version = "0.5.0", default-features = false }
+dioxus-html = { version = "0.5.0", default-features = false, features = ["serialize"] }
+dioxus-native-core = { version = "0.5.0-alpha.2", default-features = false, features = ["dioxus"] }
+dioxus-native-core-macro = { version = "0.5.0-alpha.2", default-features = false }
+shipyard = { version = "0.6.2", default-features = false, features = ["proc", "std"] }
+taffy = { version = "0.4.0", default-features = false, features = ["std", "taffy_tree", "flexbox", "block_layout", "content_size"] }
+
+[build-dependencies]
+cc = "1.0"
+
+[profile.release]
+opt-level = "s"  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[package.metadata.cargo-3ds]
+name = "Save Cloud"
+romfs_dir = "romfs"
+icon = "./assets/icon.png"

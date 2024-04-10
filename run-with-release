@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cargo 3ds run -s -- -Z build-std=std,panic_abort --release

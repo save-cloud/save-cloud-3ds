@@ -1,0 +1,9 @@
+[
+  {
+    "directory": "/Users/yuuko/develop/3ds/save-cloud-3ds",
+    "command": "/opt/devkitpro/devkitARM/bin/arm-none-eabi-gcc  -isystem /opt/devkitpro/devkitARM/arm-none-eabi/include -isystem /opt/devkitpro/libctru/include -isystem /opt/devkitpro/portlibs/3ds/include -Wl,-q -std=gnu11 -o CMakeFiles/save-cloud-3ds.dir/http.c.obj -c /Users/yuuko/develop/3ds/save-cloud-3ds/c/http.c",
+    "file": "/Users/yuuko/develop/3ds/save-cloud-3ds/c/http.c",
+    "output": "CMakeFiles/save-cloud-3ds.dir/http.c.obj"
+  }
+]
+
