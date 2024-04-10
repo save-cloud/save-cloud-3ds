@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo "make icon.msdh"
+bannertool makesmdh -s "Save Cloud" -l "游戏存档云备份" -p "豆汤" -i assets/icon.png -o icon.smdh
+
+echo "make banner.bnr"
+bannertool makebanner -i ./assets/banner.png -a ./assets/audio.wav -o banner.bnr
+
+echo "make cia"
+makerom -f cia -o target/armv6k-nintendo-3ds/release/save-cloud.cia -rsf ./assets/cia.rsf -target t -exefslogo -elf target/armv6k-nintendo-3ds/release/save-cloud.elf -icon icon.smdh -banner banner.bnr
+
+echo "clean icon.smdh banner.bnr"
+rm icon.smdh banner.bnr
+

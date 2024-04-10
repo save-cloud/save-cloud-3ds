@@ -1,0 +1,8 @@
+--atlas -f rgba8888 -z auto
+icon_s.png
+device.png
+cloud.png
+device_bg.png
+placeholder.png
+logo.png
+no-data.png
