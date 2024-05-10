@@ -52,7 +52,6 @@ pub enum SaveStoreType {
 #[derive(Clone, Copy, PartialEq)]
 pub enum Actions {
     OpenTitle,
-    ChangeCoin,
     BackupGameAllSaves,
     BackupAllGameAllSaves,
     BackupGameAllSavesToCloud,
@@ -66,11 +65,10 @@ impl Deref for Actions {
     fn deref(&self) -> &Self::Target {
         match self {
             Actions::OpenTitle => "打开游戏",
-            Actions::ChangeCoin => "修改金币",
-            Actions::BackupGameAllSaves => "备份该游戏所有存档",
-            Actions::BackupAllGameAllSaves => "备份所有游戏所有存档",
-            Actions::BackupGameAllSavesToCloud => "备份该游戏所有存档到云端",
-            Actions::BackupAllGameAllSavesToCloud => "备份所有游戏所有存档到云端",
+            Actions::BackupGameAllSaves => "备份【该】游戏所有存档",
+            Actions::BackupAllGameAllSaves => "备份【所有】游戏所有存档",
+            Actions::BackupGameAllSavesToCloud => "备份【该】游戏所有存档到【云端】",
+            Actions::BackupAllGameAllSavesToCloud => "备份【所有】游戏所有存档到【云端】",
             Actions::About => "关于",
         }
     }
@@ -372,7 +370,6 @@ pub fn Titles() -> Element {
                                                 Rc::new(RefCell::new(Box::new(move || {})))
                                             );
                                         }
-                                        _ => {}
                                     }
                                 },
 

@@ -820,10 +820,10 @@ pub fn Menu(mut props: MenuProps) -> Element {
                                             Api::start_download(fs_id, &backup_path, None).and_then(|_| {
                                                 // restore download backup
                                                 let res = restore_backup(selected.title, save_type, backup_path.clone(), toast, notify);
-                                                // update local backup list
-                                                fetch_game_save_local(selected.title, save_type, list_local);
                                                 // remove download backup after restore
                                                 fs::remove_file(&backup_path).ok();
+                                                // update local backup list
+                                                fetch_game_save_local(selected.title, save_type, list_local);
                                                 // remove local backup dir if empty
                                                 if let Some(parent) = Path::new(&backup_path).parent() {
                                                     delete_dir_if_empty(parent).ok();

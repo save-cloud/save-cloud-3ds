@@ -812,6 +812,14 @@ pub fn create_dir_all<P: AsRef<Path>>(arch: &Archive, path: P) -> IoResult<()> {
     result
 }
 
+pub fn is_dir_exists(arch: &Archive, path: impl AsRef<Path>) -> bool {
+    let maybe_dir = read_dir(arch, path.as_ref());
+    match maybe_dir {
+        Ok(_) => true,
+        Err(_) => false,
+    }
+}
+
 /// Given a path, query the file system to get information about a file, directory, etc
 pub fn metadata<P: AsRef<Path>>(arch: &Archive, path: P) -> IoResult<Metadata> {
     let maybe_file = File::open(arch, path.as_ref());

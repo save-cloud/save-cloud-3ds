@@ -276,12 +276,12 @@ pub fn zip_extract(
         };
 
         if (*file_name.name()).ends_with('/') {
-            if !output_path.exists() {
+            if !fsu::is_dir_exists(to.1, &output_path) {
                 fsu::create_dir_all(&to.1, &output_path)?;
             }
         } else {
             if let Some(p) = output_path.parent() {
-                if !p.exists() {
+                if !fsu::is_dir_exists(to.1, p) {
                     fsu::create_dir_all(&to.1, p)?;
                 }
             }

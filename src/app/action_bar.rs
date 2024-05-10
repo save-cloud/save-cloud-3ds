@@ -37,7 +37,7 @@ pub fn ActionBar(props: ActionBarProps) -> Element {
                 div {
                     "scale": 0.3,
                     margin_top: 2,
-                    "v2024.04.08"
+                    "v2024.05.10"
                 }
             }
 
