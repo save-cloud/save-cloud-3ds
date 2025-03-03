@@ -2,6 +2,8 @@
   <img src="./assets/cover.png" />
 </p>
 
+中文/[English](./README-EN.md)
+
 # Save Cloud for 3DS
 
 > 唯一一个适配了裸眼 3D 的 3ds 游戏存档云备份工具
